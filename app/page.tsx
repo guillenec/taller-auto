@@ -1,50 +1,60 @@
 import AnimatedSection from "@/components/AnimatedSection";
 import { ShieldCheck, Sparkles, Clock, Star } from "lucide-react";
+import { FONDOS_IMGS } from "./data/images";
+import Image from "next/image";
 
 export default function HomePage() {
+  const imagen1 = FONDOS_IMGS[5]
   return (
     <>
       {/* HERO */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-        <img
-          src="https://picsum.photos/1800/900?random=900"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-          alt="Taller automotriz"
+        <Image
+          src={`${imagen1?.srcImg}`}
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          alt={`${imagen1.alt}`}
+          fill
+          priority
         />
         <div className="absolute inset-0 bg-linear-to-br from-slate-900/80 via-slate-900/40 to-slate-900/90" />
 
-        <div className="relative text-center px-6 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
-            Chapistería y pintura
-            <span className="block bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
-              con estándar de concesionaria
-            </span>
-          </h1>
+        <AnimatedSection
+          delay={0.05}
+        >
+          <div className="relative text-center px-6 max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
+              Chapistería y pintura
+              <span className="block bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                con estándar de concesionaria
+              </span>
+            </h1>
 
-          <p className="mt-4 text-white/90 text-lg md:text-xl">
-            Reparación de golpes, pintura completa, retoques y detallado premium con
-            tecnología de última generación en Bariloche.
-          </p>
+            <p className="mt-4 text-white/90 text-lg md:text-xl">
+              Reparación de golpes, pintura completa, retoques y detallado premium con
+              tecnología de última generación en Bariloche.
+            </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="/contacto"
-              className="px-7 py-3 rounded-xl bg-linear-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:opacity-90 transition"
-            >
-              Solicitar presupuesto
-            </a>
-            <a
-              href="/galeria"
-              className="px-7 py-3 rounded-xl bg-white/10 text-white border border-white/30 font-semibold hover:bg-white/15 transition"
-            >
-              Ver trabajos realizados
-            </a>
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="/contacto"
+                className="px-7 py-3 rounded-xl bg-linear-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:opacity-90 transition"
+              >
+                Solicitar presupuesto
+              </a>
+              <a
+                href="/galeria"
+                className="px-7 py-3 rounded-xl bg-white/10 text-white border border-white/30 font-semibold hover:bg-white/15 transition"
+              >
+                Ver trabajos realizados
+              </a>
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
+
       </section>
 
       {/* POR QUÉ ELEGIRNOS */}
-      <AnimatedSection className="max-w-7xl mx-auto px-6 py-16">
+      <AnimatedSection delay={0.15} className="max-w-7xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center mb-3">
           ¿Por qué elegir <span className="text-transparent bg-linear-to-r from-blue-600 to-pink-600 bg-clip-text">TallerPro</span>?
         </h2>
@@ -84,7 +94,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* PROCESO DE TRABAJO */}
-      <AnimatedSection delay={0.1} className="bg-linear-to-r from-blue-50 via-white to-pink-50 py-16">
+      <AnimatedSection delay={0.15} className="bg-linear-to-r from-blue-50 via-white to-pink-50 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-3">Nuestro proceso</h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto mb-10">
@@ -155,7 +165,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* CTA FINAL */}
-      <AnimatedSection delay={0.2} className="px-6 pb-16">
+      <AnimatedSection delay={0.15} className="px-6 pb-16">
         <div className="max-w-5xl mx-auto rounded-3xl bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-white p-10 shadow-2xl text-center">
           <h2 className="text-3xl font-bold mb-2">¿Listo para devolverle la estética a tu vehículo?</h2>
           <p className="mb-6 text-white/90">
