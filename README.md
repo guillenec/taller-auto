@@ -30,6 +30,18 @@
 
 ---
 
+## 🚀 Demo
+
+* 👉 Live Demo: proximamente...
+* 👉 Repositorio GitHub: link ...
+
+## 🖥️ Previews
+
+* 🏠 Home
+![alt text](image.png)
+
+(Hero con fondo, gradientes premium, animaciones suaves)
+
 ## 📦 Instalación
 
 Requisitos:
