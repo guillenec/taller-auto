@@ -1,24 +1,25 @@
 
 type ImagenBase = {
-    srcImg?: string;
-    alt?: string;
+    srcImg: string;
+    alt: string;
     name?: string;
+    descripcion?: string;
 };
 
 type GaleriaImg = ImagenBase & {
-    tipo: "golpes" | "pintura" | "pulido" | "restauración";
+    tipo: "golpes" | "pintura" | "pulido" | "restauracion";
 };
 
 /** Rutas para la sección de Fondos */
 export const FONDOS_IMGS = [
-    { srcImg: "/fondo/fondo1.png", alt: "Fondo 1" },
-    { srcImg: "/fondo/fondo2.png", alt: "Fondo 2" },
-    { srcImg: "/fondo/fondo3.png", alt: "Fondo 3" },
-    { srcImg: "/fondo/fondo4.png", alt: "Fondo 4" },
-    { srcImg: "/fondo/fondo5.png", alt: "Fondo 5" },
-    { srcImg: "/fondo/fondo6.png", alt: "Fondo 6" },
-    { srcImg: "/fondo/fondo7.png", alt: "Fondo 7" },
-    { srcImg: "/fondo/fondo8.png", alt: "Fondo 8" }
+    { srcImg: "/fondo/fondos1.png", alt: "Fondo 1" },
+    { srcImg: "/fondo/fondos2.png", alt: "Fondo 2" },
+    { srcImg: "/fondo/fondos3.png", alt: "Fondo 3" },
+    { srcImg: "/fondo/fondos4.png", alt: "Fondo 4" },
+    { srcImg: "/fondo/fondos5.png", alt: "Fondo 5" },
+    { srcImg: "/fondo/fondos6.png", alt: "Fondo 6" },
+    { srcImg: "/fondo/fondos7.png", alt: "Fondo 7" },
+    { srcImg: "/fondo/fondos8.png", alt: "Fondo 8" }
 ] as const satisfies ImagenBase[];
 
 /** Rutas para la sección de Galería */
@@ -50,17 +51,17 @@ export const GALERIA_IMGS = [
     { srcImg: "/pulido/pulido7.png", alt: "Pulido de techos y pilares", tipo: "pulido" },
     { srcImg: "/pulido/pulido8.png", alt: "Pulido espejo de carrocería", tipo: "pulido" },
 
-    { srcImg: "/restauracion/restauraciones_1.png", alt: "Restauración completa fase 1", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_2.png", alt: "Restauración completa fase 2", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_3.png", alt: "Restauración completa fase 3", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_4.png", alt: "Restauración completa fase 4", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_5.png", alt: "Restauración completa fase 5", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_6.png", alt: "Restauración completa fase 6", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_7.png", alt: "Restauración completa fase 7", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_8.png", alt: "Restauración completa fase 8", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_9.png", alt: "Restauración completa fase 9", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_10.png", alt: "Restauración completa fase 10", tipo: "restauración" },
-    { srcImg: "/restauracion/restauraciones_11.png", alt: "Restauración completa fase 11", tipo: "restauración" }
+    { srcImg: "/restauracion/restauraciones_1.png", alt: "Restauración completa fase 1", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_2.png", alt: "Restauración completa fase 2", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_3.png", alt: "Restauración completa fase 3", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_4.png", alt: "Restauración completa fase 4", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_5.png", alt: "Restauración completa fase 5", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_6.png", alt: "Restauración completa fase 6", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_7.png", alt: "Restauración completa fase 7", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_8.png", alt: "Restauración completa fase 8", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_9.png", alt: "Restauración completa fase 9", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_10.png", alt: "Restauración completa fase 10", tipo: "restauracion" },
+    { srcImg: "/restauracion/restauraciones_11.png", alt: "Restauración completa fase 11", tipo: "restauracion" }
 ] as const satisfies GaleriaImg[];
 
 /** Rutas para la sección de Personas */
@@ -78,19 +79,18 @@ export const SERVICIOS = [
     {
         srcImg: "/golpes/golpes3.png",
         alt: "Reparación de golpes",
-        descripcion: "Corrección de abolladuras, enderezado de paneles y restauración estructural precisa.",
-        tipo: "golpes"
+        descripcion: "Corrección de abolladuras, enderezado de paneles y restauración estructural con la máxima precisión.", tipo: "golpes"
     },
     {
         srcImg: "/pintura/pintura5.png",
         alt: "Pintura automotriz",
-        descripcion: "Aplicación de pintura de alta calidad con cabina presurizada y barniz cerámico.",
+        descripcion: "Aplicación de pintura de alta calidad con cabina presurizada y barnices de acabado cerámico duradero.",
         tipo: "pintura"
     },
     {
         srcImg: "/pulido/pulido2.png",
         alt: "Pulido y detallado",
-        descripcion: "Corrección de imperfecciones, pulido espejo, encerado y protección UV.",
+        descripcion: "Corrección de imperfecciones, pulido espejo profesional, encerado y protección contra rayos UV.",
         tipo: "pulido"
     }
-] as const satisfies (GaleriaImg & { descripcion: string })[];
+] as const satisfies (GaleriaImg)[];

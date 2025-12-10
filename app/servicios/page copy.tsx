@@ -53,30 +53,27 @@ export default function ServiciosPage() {
                         ? [...Array(3)].map((_, i) => <SkeletonCard key={i} />)
                         : servicios.map((s, i) => (
                             <AnimatedSection key={i} delay={0.1 + i * 0.1}>
-                                <div
-                                    className="card-premium2 group rounded-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2"
+                                <div className="card-premium text-card-foreground rounded-2xl 
+                                    overflow-hidden hover:scale-105  
+                                    transition transform duration-300 "
                                 >
+                                    <Image
+                                        src={s.srcImg}
+                                        alt={s.alt}
+                                        width={500}
+                                        height={500}
+                                        className="w-full h-48 object-cover"
+                                    />
 
-                                    {/* Imagen con overlay degradado suave */}
-                                    <div className="relative w-full h-48">
-                                        <Image
-                                            src={s.srcImg}
-                                            alt={s.alt}
-                                            fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                        />
-
-                                        <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
+                                    <div className="p-6">
+                                        {s.icon}
+                                        <h3 className="text-2xl font-semibold mt-3">
+                                            {s.titulo}
+                                        </h3>
+                                        <p className="text-muted-foreground mt-2">
+                                            {s.descripcion}
+                                        </p>
                                     </div>
-
-                                    <div className="p-6 relative z-10">
-                                        {/* Ícono */}
-                                        <div className="mb-3 drop-shadow-md">{s.icon}</div>
-
-                                        <h3 className="text-2xl font-semibold">{s.titulo}</h3>
-                                        <p className="text-muted-foreground mt-2">{s.descripcion}</p>
-                                    </div>
-
                                 </div>
                             </AnimatedSection>
                         ))}

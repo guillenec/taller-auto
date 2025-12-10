@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "next-themes";
+import { LanguageProvider } from "./providers/LanguageProvider";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
 
 export const metadata: Metadata = {
   title: "TallerPro | Chapistería y Pintura Automotriz",
   description: "Servicios profesionales de carrocería, pintura y detallado premium.",
   icons: {
-    icon: "/car_repair.svg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "TallerPro | Chapistería y Pintura Automotriz",
@@ -67,13 +68,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${sora.variable} antialiased font-sora bg-gray-50 text-gray-900`}
+        className="antialiased font-sora bg-background text-foreground transition-colors"
       >
-        <Navbar />
-        <main className="pt-16 min-h-screen">{children}</main>
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
+          <LanguageProvider>
+
+            <Navbar />
+            <main className="pt-16 min-h-screen">
+              {children}
+            </main>
+            <Footer />
+          </LanguageProvider>
+
+        </ThemeProvider>
       </body>
     </html>
   );

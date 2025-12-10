@@ -1,0 +1,142 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "services": "Servicios",
+        "gallery": "Galería",
+        "about": "Nosotros",
+        "contact": "Contacto"
+    },
+    "home": {
+        "hero_title": "Chapistería y pintura",
+        "hero_gradiente": "con estándar de concesionaria",
+        "hero_sub": "Reparación de golpes pintura ,completa, retoques y detallado premium con tecnología de última generación en Bariloche.",
+        "hero_button_contact1": "Solicitar presupuesto",
+        "hero_button_galery": "Ver trabajos realizados",
+        "titulo2": "¿Por qué elegir",
+        "titulo2_gradiente": "TallerPro?",
+        "subtitulo2": "Combinamos experiencia, equipamiento y procesos de calidad para que tu vehículo vuelva a lucir como el primer día.",
+        "card1_titulo": "Garantía por escrito",
+        "card1_subtitulo": "Todos nuestros trabajos incluyen garantía escrita sobre pintura y adherencia.",
+        "card2_titulo": "Terminación impecable",
+        "card2_subtitulo": "Igualación de color computarizada y pulido final espejo.",
+        "card3_titulo": "Cumplimiento de plazos",
+        "card3_subtitulo": "Entrega en tiempo acordado, sin sorpresas.",
+        "proceso_titulo": "Nuestro proceso",
+        "proceso_sub": "Un flujo claro y transparente, desde la recepción hasta la entrega final.",
+        "proceso_items": [
+            {
+                "titulo": "Diagnóstico",
+                "desc": "Evaluación del daño."
+            },
+            {
+                "titulo": "Reparación",
+                "desc": "Corrección y ajustes."
+            },
+            {
+                "titulo": "Pintura & Pulido",
+                "desc": "Cabina presurizada."
+            },
+            {
+                "titulo": "Entrega",
+                "desc": "Calidad asegurada."
+            }
+        ],
+        "testimonios_titulo": "Lo que dicen nuestros clientes",
+        "testimonios_sub": "La mejor carta de presentación son los resultados.",
+        "testimonios": [
+            {
+                "nombre": "Marcos G.",
+                "texto": "Quedó como nuevo."
+            },
+            {
+                "nombre": "Lucía P.",
+                "texto": "Cumplieron los plazos."
+            },
+            {
+                "nombre": "Federico R.",
+                "texto": "Muy detallistas."
+            }
+        ],
+        "cta_titulo": "¿Listo para empezar?",
+        "cta_sub": "Mandanos fotos o completá el formulario de contacto.",
+        "cta_btn1": "Cotizar por WhatsApp",
+        "cta_btn2": "Ir a contacto"
+    },
+    "services": {
+        "title": "Nuestros",
+        "title_gradient": "Servicios",
+        "card_golpes_title": "Reparación de golpes",
+        "card_golpes_desc": "Corrección de abolladuras, enderezado de paneles y restauración estructural con la máxima precisión.",
+        "card_pintura_title": "Pintura automotriz",
+        "card_pintura_desc": "Aplicación de pintura de alta calidad con cabina presurizada y barnices de acabado cerámico duradero.",
+        "card_pulido_title": "Pulido y detallado",
+        "card_pulido_desc": "Corrección de imperfecciones, pulido espejo profesional, encerado y protección contra rayos UV."
+    },
+    "gallery": {
+        "title": "Galería de",
+        "title_gradient": "Trabajos Realizados",
+        "subtitle": "Mirá algunos de nuestros resultados en pintura, corrección de golpes, restauración y detallado premium.",
+        "filters": {
+            "all": "Todos",
+            "golpes": "Golpes",
+            "pintura": "Pintura",
+            "pulido": "Pulido",
+            "restauracion": "Restauración"
+        },
+        "pagination_prev": "← Anterior",
+        "pagination_next": "Siguiente →",
+        "pagination_page": "Página",
+        "cta_title": "La excelencia queda registrada",
+        "cta_sub": "Cada trabajo documenta nuestro compromiso con la calidad."
+    },
+    "about": {
+        "title": "Sobre",
+        "title_gradient": "Nosotros",
+        "subtitle": "Sabemos que tu vehículo es más que un medio de transporte. Por eso trabajamos con dedicación, precisión y cuidado en cada detalle.",
+        "history_title": "Nuestra historia",
+        "history_p1": "TallerPro nació en 2004 como un pequeño taller dedicado a brindar un servicio honesto y de calidad. Con el tiempo, la demanda y la pasión por hacerlo bien nos llevó a crecer, invertir en tecnología y formar un equipo altamente capacitado.",
+        "history_p2": "Hoy somos un centro automotriz integral reconocido en toda la región, con cabinas presurizadas, mezcla de color digital y procesos certificados de detallado premium.",
+        "values_title": "Nuestros valores",
+        "value_confianza_title": "Confianza",
+        "value_confianza_desc": "Transparencia total en tiempos, presupuestos y procesos.",
+        "value_calidad_title": "Calidad superior",
+        "value_calidad_desc": "Técnicas avanzadas, equipos profesionales y pintura premium.",
+        "value_atencion_title": "Atención humana",
+        "value_atencion_desc": "Acompañamos cada proyecto con cercanía y responsabilidad.",
+        "team_title": "Nuestro equipo",
+        "cta_title": "Pasión por lo que hacemos",
+        "cta_sub": "Cada vehículo que pasa por nuestro taller es una oportunidad para superar expectativas. Nos mueve el orgullo por un trabajo bien hecho."
+    },
+    "contact": {
+        "title": "Ponte en",
+        "title_gradient": "Contacto",
+        "subtitle": "Nuestro equipo está listo para ayudarte. Escríbenos, llámanos o visítanos en nuestro taller.",
+        "form_title": "Envíanos un mensaje",
+        "form_name": "Nombre completo",
+        "form_email": "Correo electrónico",
+        "form_message": "Mensaje",
+        "form_button": "Enviar consulta",
+        "other_contact_title": "Otras vías de contacto",
+        "phone": "11 2233 4455",
+        "email": "info@tallerpro.com",
+        "location_title": "Nuestra ubicación",
+        "address": "Don Bosco 121, San Carlos de Bariloche, Río Negro",
+        "hours_title": "Horarios de atención",
+        "hours_week": "Lunes a Viernes: 9:00 – 18:00",
+        "hours_sat": "Sábados: 9:00 – 13:00"
+    },
+    "footer": {
+        "brand_text": "Especialistas en chapistería, pintura y detallado automotriz en San Carlos de Bariloche. Trabajamos con procesos controlados y materiales de primera línea para garantizar resultados impecables.",
+        "nav_title": "Navegación",
+        "nav_home": "Inicio",
+        "nav_services": "Servicios",
+        "nav_gallery": "Galería",
+        "nav_about": "Sobre nosotros",
+        "nav_contact": "Contacto",
+        "contact_title": "Contacto",
+        "contact_address": "Don Bosco 121, San Carlos de Bariloche",
+        "contact_phone": "Tel: 11 2233 4455",
+        "contact_email": "info@tallerpro.com",
+        "rights": "Todos los derechos reservados."
+    }
+}

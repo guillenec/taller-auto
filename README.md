@@ -1,36 +1,194 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# TallerPro – Web de Chapistería y Pintura Automotriz
 
-First, run the development server:
+**Sitio web moderno, rápido y accesible**, construido con **Next.js 14**, **TailwindCSS**, **dark/light theme**, **i18n (ES/EN)**, animaciones suaves y UI premium con gradientes.
+
+---
+
+## 🏷️ Badges
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![React](https://img.shields.io/badge/React-18-61dafb?logo=react)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?logo=tailwindcss)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-In%20Development-purple)
+
+---
+
+## 🚀 Características principales
+
+* 🌑 **Dark / Light mode** con persistencia
+* 🌐 **Internacionalización (ES / EN)** con `LanguageProvider`
+* 🎨 **UI Premium** con gradientes personalizados
+* ⚡ **Animaciones suaves** usando framer-motion + secciones animadas
+* 📱 **Diseño responsive**
+* 🖼️ **Galería filtrable**
+* 🔧 **Páginas de Servicios, Nosotros, Contacto**
+* ✉️ Formulario de contacto estilizado
+* 🧩 Arquitectura modular y escalable
+
+---
+
+## 📦 Instalación
+
+Requisitos:
+
+* Node.js **18+**
+* pnpm (**recomendado**), npm o yarn
+
+### 1. Clonar el repositorio
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tuusuario/tallerpro.git
+cd tallerpro
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instalar dependencias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+# o
+npm install
+# o
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Ejecutar en desarrollo
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+El proyecto estará disponible en:
+➡️ **[http://localhost:3000](http://localhost:3000)**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Scripts útiles
 
-## Deploy on Vercel
+| Script                                | Acción                              |
+| ------------------------------------- | ----------------------------------- |
+| `pnpm dev`                            | Corre el servidor de desarrollo     |
+| `pnpm build`                          | Compila el proyecto para producción |
+| `pnpm start`                          | Ejecuta la app compilada            |
+| `pnpm lint`                           | Corre ESLint                        |
+| `pnpm format` *(si agregás Prettier)* | Formatea el código                  |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧱 Arquitectura del proyecto
+
+```bash
+app/
+ ├── contacto/         → Página de contacto
+ ├── galeria/          → Galería filtrable
+ ├── servicios/        → Servicios ofrecidos
+ ├── sobre-nosotros/   → Página institucional
+ ├── providers/        → LanguageProvider (i18n)
+ ├── i18n/             → JSON de traducciones ES/EN
+ ├── layout.tsx        → Root layout (theme + provider)
+ ├── page.tsx          → Página de inicio
+ └── globals.css       → Configuración de Tailwind + estilos
+
+components/
+ ├── Navbar.tsx
+ ├── Footer.tsx
+ ├── ThemeToggle.tsx
+ ├── AnimatedSection.tsx
+ ├── ScrollSection.tsx
+ ├── SkeletonCard.tsx
+ ├── ui/               → Botones / componentes shadcn opcionales
+ └── WhatsAppButton.tsx
+
+hooks/
+ └── useTheme.ts       → Hooks para theme system
+
+public/
+ └── imágenes organizadas por categorías
+
+types/
+ └── types.ts          → Tipado global para traducciones
+```
+
+---
+
+## 🌐 Internacionalización (ES/EN)
+
+El proyecto usa un **LanguageProvider** propio basado en `React Context`, lo que permite:
+
+* Cambiar idioma desde la navbar
+* Persistir selección en `localStorage`
+* Uso simple desde cualquier componente:
+
+```ts
+import { useLanguage } from "@/app/providers/LanguageProvider";
+
+const { t, lang, toggleLang } = useLanguage();
+```
+
+---
+
+## 🌓 Sistema de temas (Dark / Light)
+
+Implementado con **next-themes**:
+
+```tsx
+<ThemeProvider attribute="class" defaultTheme="light">
+    ...
+</ThemeProvider>
+```
+
+Y variables CSS personalizadas en `globals.css`:
+
+* `--gradient-start`
+* `--gradient-end`
+* `--card`
+* `--background`
+* etc.
+
+⚡ ¡Permite efectos premium y gradientes dinámicos en toda la UI!
+
+---
+
+## 🎨 Efectos visuales premium
+
+Incluye clases personalizadas como:
+
+* `card-premium`
+* `card-premium2`
+* `card-premium-soft`
+
+Con efectos:
+
+* Glow
+* Bordes gradientes reales
+* Blur suave
+* Hover escalado
+
+Ejemplo:
+
+```html
+<div class="card-premium-soft p-8 bg-card shadow-xl">...</div>
+```
+
+---
+
+## 📸 Galería
+
+Sistema de imágenes organizado desde `app/data/images.ts`, con filtros:
+
+* Golpes
+* Pintura
+* Pulido
+* Restauración
+
+---
+
+## 📬 Contacto del desarrollador
+
+Si querés soporte o mantenimiento:
+
+* ✉️ [guillermoneculqueo@gmail.com](guillermoneculqueo@gmail.com)
+* 💼 [LinkedIn](www.linkedin.com/in/guillermoagustinneculqueo)
+* 🌐 [Portfolio_desactualizado](https://guillenec.netlify.app/)

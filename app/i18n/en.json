@@ -1,0 +1,142 @@
+{
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "gallery": "Gallery",
+        "about": "About us",
+        "contact": "Contact"
+    },
+    "home": {
+        "hero_title": "Bodywork & Paint",
+        "hero_gradiente": "with dealership-grade quality",
+        "hero_sub": "We offer professional repair, full paint, retouching and premium detailing using the latest technology.",
+        "hero_button_contact1": "Request a quote",
+        "hero_button_galery": "See our work",
+        "titulo2": "Why choose",
+        "titulo2_gradiente": "TallerPro?",
+        "subtitulo2": "We combine experience, equipment and quality processes so your vehicle looks like new again.",
+        "card1_titulo": "Written warranty",
+        "card1_subtitulo": "All our work includes a written warranty on paint and adhesion.",
+        "card2_titulo": "Impeccable finish",
+        "card2_subtitulo": "Computerized color matching and mirror-finish polishing.",
+        "card3_titulo": "On-time delivery",
+        "card3_subtitulo": "We meet the agreed deadlines with no surprises.",
+        "proceso_titulo": "Our process",
+        "proceso_sub": "A clear and transparent workflow, from reception to final delivery.",
+        "proceso_items": [
+            {
+                "titulo": "Diagnosis",
+                "desc": "Damage evaluation."
+            },
+            {
+                "titulo": "Repair",
+                "desc": "Correction and adjustments."
+            },
+            {
+                "titulo": "Paint & Polishing",
+                "desc": "Pressurized booth painting."
+            },
+            {
+                "titulo": "Delivery",
+                "desc": "Quality assurance."
+            }
+        ],
+        "testimonios_titulo": "What our clients say",
+        "testimonios_sub": "The best presentation letter is the results.",
+        "testimonios": [
+            {
+                "nombre": "Mark G.",
+                "texto": "Looks like new."
+            },
+            {
+                "nombre": "Lucy P.",
+                "texto": "They met the deadlines."
+            },
+            {
+                "nombre": "Fred R.",
+                "texto": "Very detail-oriented."
+            }
+        ],
+        "cta_titulo": "Ready to get started?",
+        "cta_sub": "Send us photos or complete the contact form.",
+        "cta_btn1": "Get a quote on WhatsApp",
+        "cta_btn2": "Go to contact"
+    },
+    "services": {
+        "title": "Our",
+        "title_gradient": "Services",
+        "card_golpes_title": "Dents repair",
+        "card_golpes_desc": "Professional dent correction, part replacement and surface preparation.",
+        "card_pintura_title": "Automotive painting",
+        "card_pintura_desc": "Full repaint, computer color matching and precision touch-ups.",
+        "card_pulido_title": "Polishing & detailing",
+        "card_pulido_desc": "Mirror-finish polishing, shine restoration and final protection."
+    },
+    "gallery": {
+        "title": "Gallery of",
+        "title_gradient": "Completed Work",
+        "subtitle": "See some of our results in painting, dent repair, restoration, and premium detailing.",
+        "filters": {
+            "all": "All",
+            "golpes": "Dents",
+            "pintura": "Painting",
+            "pulido": "Polishing",
+            "restauracion": "Restoration"
+        },
+        "pagination_prev": "← Previous",
+        "pagination_next": "Next →",
+        "pagination_page": "Page",
+        "cta_title": "Excellence Captured",
+        "cta_sub": "Every project reflects our commitment to quality."
+    },
+    "about": {
+        "title": "About",
+        "title_gradient": "Us",
+        "subtitle": "We know your vehicle is more than transportation. That's why we work with dedication, precision, and attention to every detail.",
+        "history_title": "Our history",
+        "history_p1": "TallerPro was founded in 2004 as a small workshop focused on honest and high-quality service. Over time, demand and passion led us to grow, invest in technology, and build a highly trained team.",
+        "history_p2": "Today we are a recognized automotive center in the region, with pressurized paint booths, digital color mixing, and certified detailing processes.",
+        "values_title": "Our values",
+        "value_confianza_title": "Trust",
+        "value_confianza_desc": "Total transparency in timing, budgets, and processes.",
+        "value_calidad_title": "Superior quality",
+        "value_calidad_desc": "Advanced techniques, professional equipment and premium paint.",
+        "value_atencion_title": "Human attention",
+        "value_atencion_desc": "We accompany each project with care and responsibility.",
+        "team_title": "Our team",
+        "cta_title": "Passion for what we do",
+        "cta_sub": "Every vehicle we work on is an opportunity to exceed expectations. Pride in a job well done drives us."
+    },
+    "contact": {
+        "title": "Get in",
+        "title_gradient": "Touch",
+        "subtitle": "Our team is ready to help you. Write to us, call us, or visit our workshop.",
+        "form_title": "Send us a message",
+        "form_name": "Full name",
+        "form_email": "Email address",
+        "form_message": "Message",
+        "form_button": "Send inquiry",
+        "other_contact_title": "Other contact options",
+        "phone": "11 2233 4455",
+        "email": "info@tallerpro.com",
+        "location_title": "Our location",
+        "address": "Don Bosco 121, San Carlos de Bariloche, Río Negro",
+        "hours_title": "Business hours",
+        "hours_week": "Mon to Fri: 9:00 – 18:00",
+        "hours_sat": "Saturday: 9:00 – 13:00"
+    },
+    "footer": {
+        "brand_text": "Specialists in bodywork, paint and automotive detailing in San Carlos de Bariloche. We work with controlled processes and top-quality materials to guarantee impeccable results.",
+        "nav_title": "Navigation",
+        "nav_home": "Home",
+        "nav_services": "Services",
+        "nav_gallery": "Gallery",
+        "nav_about": "About us",
+        "nav_contact": "Contact",
+        "contact_title": "Contact",
+        "contact_address": "Don Bosco 121, San Carlos de Bariloche",
+        "contact_phone": "Phone: 11 2233 4455",
+        "contact_email": "info@tallerpro.com",
+        "rights": "All rights reserved."
+    }
+}

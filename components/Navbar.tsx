@@ -1,45 +1,97 @@
 "use client";
-import { Menu } from "lucide-react";
+import { Globe, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { ThemeToggle } from "./ThemeToggle";
+import { NavKey } from "@/types/types";
+import { useLanguage } from "@/app/providers/LanguageProvider";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const pathname = usePathname();
+    const { lang, toggleLang, t } = useLanguage();
+
+    const links: { href: string, key: NavKey }[] = [
+        { href: "/", key: "home" },
+        { href: "/servicios", key: "services" },
+        { href: "/galeria", key: "gallery" },
+        { href: "/sobre-nosotros", key: "about" },
+        { href: "/contacto", key: "contact" },
+    ];
+
+    const isActive = (href: string) =>
+        pathname === href
+            ? "font-semibold text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]"
+            : "hover:text-blue-600 dark:hover:text-blue-400 transition";
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-white/70 border-b border-white/20 shadow-sm">
+        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg 
+        bg-background/70 border-b border-border shadow-sm text-foreground" >
             <div className="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-                <h1 className="text-2xl font-bold bg-linear-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent">
+                {/* logo */}
+                <Link href="/" className="text-2xl font-bold text-transparent bg-clip-text 
+                    bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
                     TallerPro
-                </h1>
+                </Link>
 
                 <ul className="hidden md:flex gap-8 font-inter">
-                    <li><Link href="/" className="hover:text-blue-600 transition">Inicio</Link></li>
-                    <li><Link href="/servicios" className="hover:text-blue-600 transition">Servicios</Link></li>
-                    <li><Link href="/galeria" className="hover:text-blue-600 transition">Galería</Link></li>
-                    <li><Link href="/sobre-nosotros" className="hover:text-blue-600 transition">Nosotros</Link></li>
-                    <li><Link href="/contacto" className="hover:text-blue-600 transition">Contacto</Link></li>
+                    {
+                        links.map((link) => (
+                            <li key={link.href}>
+                                <Link
+                                    href={link.href}
+                                    className={isActive(link.href)}
+                                >
+                                    {t?.nav[link.key]}
+                                </Link>
+                            </li>
+                        ))
+                    }
                 </ul>
 
-                <button
-                    className="md:hidden"
-                    onClick={() => setOpen(!open)}
-                >
-                    <Menu />
-                </button>
-            </div>
 
-            {open && (
-                <div className="md:hidden bg-white border-t shadow-md">
-                    <ul className="flex flex-col py-3 px-6 gap-4">
-                        <Link href="/">Inicio</Link>
-                        <Link href="/servicios">Servicios</Link>
-                        <Link href="/galeria">Galería</Link>
-                        <Link href="/sobre-nosotros">Nosotros</Link>
-                        <Link href="/contacto">Contacto</Link>
-                    </ul>
+                {/* BOTONES */}
+                <div className="flex items-center gap-4">
+
+                    {/* SWITCH TEMA */}
+                    <ThemeToggle />
+
+                    {/* IDIOMA */}
+                    <button onClick={toggleLang}
+                        className="p-2 rounded-md bg-card dark:bg-card hover:bg-border dark:hover:bg-border transition flex items-center gap-1 border border-border">
+                        <Globe size={18} />
+                        <span className="text-sm font-semibold">{lang.toUpperCase()}</span>
+                    </button>
+
+                    <button
+                        className="md:hidden"
+                        onClick={() => setOpen(!open)}
+                    >
+                        <Menu />
+                    </button>
                 </div>
-            )}
-        </nav>
+
+            </div>
+            {/* mobile menu */}
+            {
+                open && (
+                    <div className="md:hidden bg-background text-foreground border-t border-border shadow-md">
+                        <ul className="flex flex-col py-3 px-6 gap-4">
+                            {links.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className={`${isActive(link.href)} py-1`}
+                                    onClick={() => setOpen(false)}
+                                >
+                                    {t?.nav[link.key]}
+                                </Link>
+                            ))}
+                        </ul>
+                    </div>
+                )
+            }
+        </nav >
     );
 }

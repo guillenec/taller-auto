@@ -1,9 +1,107 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --font-inter: "Inter", sans-serif;
   --font-sora: "Sora", sans-serif;
+
+  /* === Colores base claros === */
+  --background: #f7f7f7;
+  --foreground: #111111;
+  /* slate-800 */
+
+  /* Tarjetas */
+  --card: #ffffff;
+  --card-foreground: #111111;
+
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+
+  /* === Tus primarios (gradient azul → rosa) === */
+  --primary: #2563eb;
+  /* blue-600 */
+  --primary-foreground: #ffffff;
+
+  /* === Secundarios suaves === */
+  --secondary: #f1f5f9;
+  /* slate-100 */
+  --secondary-foreground: #1e293b;
+
+  /* Texto secundario */
+  --muted: #6b7280;
+  --muted-foreground: #4b5563;
+
+  --accent: #fce7f3;
+  /* rosa pálido */
+  --accent-foreground: #be185d;
+  /* pink-700 */
+
+  --destructive: #dc2626;
+  /* red-600 */
+  --destructive-foreground: #ffffff;
+
+  /* Bordes */
+  --border: #e5e7eb;
+
+  --input: #e2e8f0;
+  --ring: #2563eb;
+
+  /* Gradientes corporativos */
+  --gradient-start: #2563eb;
+  /* blue-600 */
+  --gradient-end: #db2777;
+  /* pink-600 */
+
+  /* Fondo sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1e293b;
 }
+
+.dark {
+  --background: #100d20;
+  --foreground: #f5f5f5;
+
+  --card: #1a1a1a;
+  --card-foreground: #f5f5f5;
+
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+
+  /* primarios adaptados */
+  --primary: #3b82f6;
+  /* blue-500 */
+  --primary-foreground: #0f172a;
+
+  /* secundarios adaptados */
+  --secondary: #334155;
+  /* slate-700 */
+  --secondary-foreground: #f8fafc;
+
+  --muted: #9ca3af;
+  --muted-foreground: #d1d5db;
+
+
+  --accent: #db2777;
+  /* pink-600 */
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --border: #333333;
+  --input: #334155;
+  --ring: #3b82f6;
+
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+
+  /* Gradiente dark (un poco más suave) */
+  --gradient-start: #1d4ed8;
+  /* blue-700 */
+  --gradient-end: #be185d;
+  /* pink-700 */
+}
+
 
 .font-sora {
   font-family: var(--font-sora);
@@ -11,4 +109,225 @@
 
 .font-inter {
   font-family: var(--font-inter);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* CARD PREMIUM ! */
+/* Efecto premium para cards (borde + glow + leve gradient) */
+.card-premium {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: var(--card-bg);
+  transition: 0.3s ease;
+}
+
+/* fondo leve con degradado */
+.card-premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(to bottom right,
+      rgba(99, 102, 241, 0.12),
+      /* azul suave */
+      rgba(236, 72, 153, 0.12)
+      /* rosa suave */
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* borde con gradiente muy sutil */
+.card-premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(to right,
+      var(--gradient-start),
+      var(--gradient-end));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* glow mágico en hover */
+.card-premium:hover {
+  box-shadow:
+    0 0 18px rgba(99, 102, 241, 0.35),
+    0 0 28px rgba(236, 72, 153, 0.35);
+  transform: translateY(-3px);
+}
+
+
+/* CARD PREMIUM2 */
+/* --- Premium Card Style --- */
+.card-premium2 {
+  position: relative;
+  background: var(--card);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s ease;
+}
+
+/* Glow suave alrededor */
+.card-premium2::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg,
+      var(--gradient-start),
+      var(--gradient-end));
+  opacity: 0.0;
+  filter: blur(25px);
+  transition: opacity 0.4s ease;
+}
+
+/* Hover */
+.card-premium2:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Incrementamos el glow real */
+.card-premium2:hover::before {
+  opacity: 0.55;
+}
+
+/* CONTACTO — Card Premium Soft */
+/* CARD PREMIUM SOFT — borde gradiente sutil */
+.card-premium-soft {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+/* borde gradiente real */
+.card-premium-soft::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+
+  background: linear-gradient(135deg,
+      var(--gradient-start),
+      transparent 40%,
+      var(--gradient-end));
+
+  /* Máscaras necesarias */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+
+  opacity: 0.45;
+  transition: opacity 0.4s ease, filter 0.3s ease;
+
+}
+
+/* hover glow */
+.card-premium-soft:hover::before {
+  opacity: 1;
+  filter: brightness(1.3);
+}
+
+/* ============================
+   BASE STYLES
+============================ */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* ============================
+   UTILITY CLASSES COMPATIBLES
+============================ */
+
+/* Fondo y texto principales */
+.bg-background {
+  background-color: var(--background);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+/* Tarjetas */
+.bg-card {
+  background-color: var(--card);
+}
+
+.text-card-foreground {
+  color: var(--card-foreground);
+}
+
+/* Texto secundario */
+.text-muted-foreground {
+  color: var(--muted-foreground);
+}
+
+/* Bordes */
+.border-border {
+  border-color: var(--border);
+}
+
+.gradient-start {
+  color: var(--gradient-start);
+}
+
+.gradient-end {
+  color: var(--gradient-end);
 }

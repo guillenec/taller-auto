@@ -2,79 +2,90 @@
 
 import AnimatedSection from "@/components/AnimatedSection";
 import { Mail, MapPin, Phone, MessageCircle, Facebook, Instagram } from "lucide-react";
-import { motion } from "framer-motion";
+import { useLanguage } from "@/app/providers/LanguageProvider";
 
 export default function ContactoPage() {
+    const { t } = useLanguage();
+
     return (
-        <section className="pt-28 pb-20 px-6 max-w-7xl mx-auto">
+        <section className="pt-28 pb-20 px-6 max-w-7xl mx-auto bg-background text-foreground">
+
             {/* TÍTULO */}
-            <AnimatedSection
-                className="mb-20"
-                delay={0.05}
-            >
+            <AnimatedSection className="mb-20" delay={0.05}>
                 <div className="text-center mb-10">
                     <h1 className="text-4xl font-bold">
-                        Ponte en{" "}
-                        <span className="bg-linear-to-r from-blue-600 to-pink-600 text-transparent bg-clip-text">
-                            Contacto
+                        {t?.contact?.title}{" "}
+                        <span className="bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text">
+                            {t?.contact?.title_gradient}
                         </span>
                     </h1>
 
-                    <p className="text-gray-600 max-w-2xl mx-auto mt-3">
-                        Nuestro equipo está listo para ayudarte. Escríbenos, llámanos o visítanos en nuestro taller.
+                    <p className="text-muted-foreground max-w-2xl mx-auto mt-3">
+                        {t?.contact?.subtitle}
                     </p>
                 </div>
             </AnimatedSection>
 
-            {/* LAYOUT */}
+            {/* GRID */}
             <div className="grid md:grid-cols-2 gap-12">
 
                 {/* FORMULARIO */}
-                <AnimatedSection
-                    delay={0.15}
-                >
-                    <div className="rounded-3xl shadow-xl p-8 bg-white/90 backdrop-blur">
-                        <h2 className="text-2xl font-semibold mb-6 bg-linear-to-r from-blue-600 to-pink-600 text-transparent bg-clip-text">
-                            Envíanos un mensaje
+                <AnimatedSection delay={0.15}>
+                    <div className="card-premium-soft shadow-xl p-8 bg-card border border-border">
+
+                        <h2 className="text-2xl font-semibold mb-6 bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text">
+                            {t?.contact?.form_title}
                         </h2>
 
                         <form className="grid gap-5">
                             <input
-                                className="p-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition"
-                                placeholder="Nombre completo"
+                                className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
+                                placeholder={t?.contact?.form_name}
                             />
                             <input
-                                className="p-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition"
-                                placeholder="Correo electrónico"
+                                className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
+                                placeholder={t?.contact?.form_email}
+                                type="email"
                             />
                             <textarea
                                 rows={5}
-                                className="p-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition"
-                                placeholder="Mensaje"
+                                className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
+                                placeholder={t?.contact?.form_message}
                             ></textarea>
 
-                            <button className="px-6 py-3 rounded-xl bg-linear-to-r from-blue-600 to-pink-600 text-white font-semibold shadow-lg hover:opacity-90 transition">
-                                Enviar consulta
+                            <button
+                                className="px-6 py-3 rounded-xl text-white font-semibold shadow-lg transition
+                                bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]
+                                hover:opacity-90"
+                            >
+                                {t?.contact?.form_button}
                             </button>
                         </form>
 
-                        {/* INFORMACIÓN EXTRA */}
+                        {/* OTROS CONTACTOS */}
                         <div className="mt-10">
-                            <h3 className="font-semibold text-lg mb-4">Otras vías de contacto</h3>
+                            <h3 className="font-semibold text-lg mb-4">{t?.contact?.other_contact_title}</h3>
 
-                            <div className="flex flex-col gap-3 text-gray-700">
-                                <p className="flex items-center gap-2 hover:text-blue-600 transition">
-                                    <Phone className="text-blue-600" /> 11 2233 4455
+                            <div className="flex flex-col gap-3 text-muted-foreground">
+                                <p className="flex items-center gap-2 hover:text-(--gradient-start) transition">
+                                    <Phone className="text-(--gradient-start)" /> {t?.contact?.phone}
                                 </p>
-                                <p className="flex items-center gap-2 hover:text-blue-600 transition">
-                                    <Mail className="text-blue-600" /> info@tallerpro.com
+                                <p className="flex items-center gap-2 hover:text-(--gradient-start) transition">
+                                    <Mail className="text-(--gradient-start)" /> {t?.contact?.email}
                                 </p>
                             </div>
 
-                            <div className="mt-6 flex gap-5 text-2xl text-gray-600">
-                                <a className="hover:text-blue-600 transition"><Facebook /></a>
-                                <a className="hover:text-pink-600 transition"><Instagram /></a>
-                                <a className="hover:text-green-600 transition"><MessageCircle /></a>
+                            {/* REDES */}
+                            <div className="mt-6 flex gap-5 text-2xl text-muted-foreground">
+                                <a className="hover:text-(--gradient-start) transition">
+                                    <Facebook />
+                                </a>
+                                <a className="hover:text-(--gradient-end) transition">
+                                    <Instagram />
+                                </a>
+                                <a className="hover:text-green-500 transition">
+                                    <MessageCircle />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -82,39 +93,45 @@ export default function ContactoPage() {
 
                 {/* MAPA + INFO */}
                 <AnimatedSection delay={0.2}>
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-6 ">
+
                         <iframe
-                            className="w-full h-80 rounded-3xl shadow-xl"
+                            className="w-full h-80 rounded-3xl shadow-xl border border-border dark:invert"
                             loading="lazy"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.1057703439556!2d-71.2894532242077!3d-41.13221693088229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a7c9d50817419%3A0xb0d760fdeb4ac0a4!2sDon%20Bosco%20121%2C%20R8400%20San%20Carlos%20de%20Bariloche%2C%20R%C3%ADo%20Negro!5e0!3m2!1ses!2sar!4v1764998316470!5m2!1ses!2sar"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.1057703439556!2d-71.2894532242077!3d-41.13221693088229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a7c9d50817419%3A0xb0d760fdeb4ac0a4!2sDon%20Bosco%20121!5e0!3m2!1ses!2sar!4v1764998316470!5m2!1ses!2sar"
                         ></iframe>
 
-                        <div className="rounded-3xl shadow-xl p-6 bg-linear-to-br from-blue-600/10 to-pink-600/10 backdrop-blur">
-                            <h3 className="text-xl font-semibold mb-4 bg-linear-to-r from-blue-600 to-pink-600 text-transparent bg-clip-text">
-                                Nuestra ubicación
+                        <div className="card-premium-soft shadow-xl p-6 border border-border bg-card">
+
+                            <h3 className="text-xl font-semibold mb-4 bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text">
+                                {t?.contact?.location_title}
                             </h3>
 
-                            <p className="flex items-center gap-2 text-gray-800 mb-2">
-                                <MapPin className="text-blue-600" /> Don Bosco 121, San Carlos de Bariloche, Río Negro
+                            <p className="flex items-center gap-2 text-muted-foreground mb-2">
+                                <MapPin className="text-(--gradient-start)" />
+                                {t?.contact?.address}
                             </p>
 
-                            <h3 className="text-xl font-semibold mt-6 mb-2 bg-linear-to-r from-blue-600 to-pink-600 text-transparent bg-clip-text">
-                                Horarios de atención
+                            <h3 className="text-xl font-semibold mt-6 mb-2 bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text">
+                                {t?.contact?.hours_title}
                             </h3>
-                            <p className="text-gray-800">Lunes a Viernes: 9:00 – 18:00</p>
-                            <p className="text-gray-800">Sábados: 9:00 – 13:00</p>
+
+                            <p className="text-muted-foreground">{t?.contact?.hours_week}</p>
+                            <p className="text-muted-foreground">{t?.contact?.hours_sat}</p>
                         </div>
                     </div>
                 </AnimatedSection>
             </div>
 
-            {/* BOTÓN WHATSAPP FLOTANTE */}
+            {/* WHATSAPP FLOTANTE */}
             <a
                 href="https://wa.me/5491122233344"
-                className="fixed bottom-6 right-6 bg-linear-to-br from-green-500 to-green-600 p-4 rounded-full shadow-xl text-white hover:scale-105 transition transform"
+                className="fixed bottom-6 right-6 p-4 rounded-full shadow-xl text-white hover:scale-105 transition transform
+                           bg-linear-to-r from-green-500 to-green-500  dark:from-green-400 dark:to-green-300"
             >
                 <MessageCircle size={28} />
             </a>
+
         </section>
     );
 }
