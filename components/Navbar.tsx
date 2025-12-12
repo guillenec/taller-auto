@@ -27,10 +27,10 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg 
-        bg-background/70 border-b border-border shadow-sm text-foreground" >
+        bg-background/70 border-b border-border shadow-sm text-foreground h-16" >
             <div className="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
                 {/* logo */}
-                <Link href="/" className="text-2xl font-bold text-transparent bg-clip-text 
+                <Link prefetch={false} href="/" className="text-2xl font-bold text-transparent bg-clip-text 
                     bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
                     TallerPro
                 </Link>
@@ -42,6 +42,7 @@ export default function Navbar() {
                                 <Link
                                     href={link.href}
                                     className={isActive(link.href)}
+                                    prefetch={false}
                                 >
                                     {t?.nav[link.key]}
                                 </Link>
@@ -84,6 +85,7 @@ export default function Navbar() {
                                     href={link.href}
                                     className={`${isActive(link.href)} py-1`}
                                     onClick={() => setOpen(false)}
+                                    prefetch={false}
                                 >
                                     {t?.nav[link.key]}
                                 </Link>

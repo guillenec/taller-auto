@@ -6,8 +6,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import Image from "next/image";
 import { GALERIA_IMGS } from "../../data/images";
 import ScrollSection from "@/components/ScrollSection";
+// import { useLanguage } from "@/hooks/useLanguage";
 import { useLanguage } from "@/app/providers/LanguageProvider";
-import ImageZoomDialog from "@/components/ImageZoomDialog";
 
 export default function GaleriaPageClient() {
     const { t } = useLanguage();
@@ -22,9 +22,6 @@ export default function GaleriaPageClient() {
 
     const [cat, setCat] = useState<(typeof categorias)[number]["slug"]>("todos");
     const [page, setPage] = useState(1);
-    const [open, setOpen] = useState(false);
-    const [zoomImg, setZoomImg] = useState<{ src: string; alt: string } | null>(null);
-
     const perPage = 9;
 
     const filtradas = useMemo(() => {
@@ -43,11 +40,6 @@ export default function GaleriaPageClient() {
     const changeCategory = (newCat: (typeof categorias)[number]["slug"]) => {
         setCat(newCat);
         setPage(1);
-    };
-
-    const openZoom = (src: string, alt: string) => {
-        setZoomImg({ src, alt });
-        setOpen(true);
     };
 
     return (
@@ -75,7 +67,7 @@ export default function GaleriaPageClient() {
                             key={c.slug}
                             onClick={() => changeCategory(c.slug)}
                             className={`px-4 py-2 rounded-full border transition
-                ${cat === c.slug
+                                ${cat === c.slug
                                     ? "text-white shadow-lg bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] border-transparent"
                                     : "bg-card border-border text-foreground hover:border-blue-500 dark:hover:border-pink-500"
                                 }`}
@@ -91,18 +83,16 @@ export default function GaleriaPageClient() {
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {paginated.map((img, index) => (
                         <AnimatedSection key={img.srcImg} delay={index * 0.03}>
-                            <div
-                                className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition cursor-pointer bg-card border border-border"
-                                onClick={() => openZoom(img.srcImg, img.alt)}
-                            >
+                            <div className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition cursor-pointer bg-card border border-border">
                                 <div className="relative w-full h-56 overflow-hidden rounded-2xl">
                                     <Image
                                         src={img.srcImg}
                                         alt={img.alt}
                                         fill
+                                        // priority={index < 3}
                                         loading="lazy"
                                         decoding="async"
-                                        className="object-cover group-hover:scale-110 transition duration-700"
+                                        className="object-cover  group-hover:scale-110 transition duration-700"
                                         sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
                                     />
                                 </div>
@@ -118,7 +108,7 @@ export default function GaleriaPageClient() {
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
                     className={`px-4 py-2 rounded-lg border transition
-            ${page === 1
+                        ${page === 1
                             ? "border-border text-muted-foreground opacity-50 cursor-not-allowed"
                             : "border-border hover:bg-muted text-foreground"
                         }`}
@@ -134,7 +124,7 @@ export default function GaleriaPageClient() {
                     onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                     disabled={page === totalPages}
                     className={`px-4 py-2 rounded-lg border transition
-            ${page === totalPages
+                        ${page === totalPages
                             ? "border-border text-muted-foreground opacity-50 cursor-not-allowed"
                             : "border-border hover:bg-muted text-foreground"
                         }`}
@@ -146,7 +136,7 @@ export default function GaleriaPageClient() {
             {/* CTA Final */}
             <ScrollSection delay={0.2}>
                 <div className="mt-20 p-10 rounded-3xl text-white text-center shadow-2xl
-          bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
+                bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
                     <Camera className="mx-auto mb-4 w-12 h-12 opacity-90" />
                     <h2 className="text-3xl font-semibold">{t?.gallery?.cta_title}</h2>
                     <p className="mt-2 text-white/90 max-w-xl mx-auto">
@@ -154,16 +144,6 @@ export default function GaleriaPageClient() {
                     </p>
                 </div>
             </ScrollSection>
-
-            {/* MODAL FULLSCREEN */}
-            {zoomImg && (
-                <ImageZoomDialog
-                    open={open}
-                    src={zoomImg.src}
-                    alt={zoomImg.alt}
-                    onOpenChange={setOpen}
-                />
-            )}
         </section>
     );
 }

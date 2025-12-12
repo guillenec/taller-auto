@@ -15,20 +15,22 @@ export default function HomePageClient() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80vh] min-h-[80vh] flex items-center justify-center overflow-hidden">
         <Image
           src={imagen1?.srcImg}
           alt={imagen1.alt}
           fill
           priority
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover opacity-90"
+          sizes="100dvh"
         />
 
         <div className="absolute inset-0 bg-black/50 dark:bg-black/40" />
 
         <AnimatedSection delay={0.05}>
           <div className="relative text-center px-6 max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg will-change-transform">
               {t?.home?.hero_title}
               <span className="block text-transparent bg-clip-text 
                 bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
@@ -36,7 +38,7 @@ export default function HomePageClient() {
               </span>
             </h1>
 
-            <p className="mt-4 text-white/90 text-lg md:text-xl">
+            <p className="font-inter mt-4 text-white/90 text-lg md:text-xl">
               {t?.home?.hero_sub}
             </p>
 

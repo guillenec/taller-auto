@@ -13,9 +13,9 @@ export default function ContactoPageClient() {
             {/* TÍTULO */}
             <AnimatedSection className="mb-20" delay={0.05}>
                 <div className="text-center mb-10">
-                    <h1 className="text-4xl font-bold">
+                    <h1 className="text-4xl font-bold will-change-transform">
                         {t?.contact?.title}{" "}
-                        <span className="bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text">
+                        <span className="bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text ">
                             {t?.contact?.title_gradient}
                         </span>
                     </h1>
@@ -96,8 +96,10 @@ export default function ContactoPageClient() {
                     <div className="flex flex-col gap-6 ">
 
                         <iframe
-                            className="w-full h-80 rounded-3xl shadow-xl border border-border dark:invert"
                             loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            sandbox="allow-scripts allow-same-origin allow-popups"
+                            className="w-full h-80 rounded-3xl shadow-xl border border-border dark:invert"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.1057703439556!2d-71.2894532242077!3d-41.13221693088229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a7c9d50817419%3A0xb0d760fdeb4ac0a4!2sDon%20Bosco%20121!5e0!3m2!1ses!2sar!4v1764998316470!5m2!1ses!2sar"
                         ></iframe>
 

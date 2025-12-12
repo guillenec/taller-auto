@@ -19,7 +19,7 @@ export default function SobreNosotrosPageClient() {
 
             {/* TÍTULO */}
             <AnimatedSection>
-                <h1 className="text-4xl font-bold text-center">
+                <h1 className="text-4xl font-bold text-center will-change-transform">
                     {t?.about?.title}{" "}
                     <span className="bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text">
                         {t?.about?.title_gradient}

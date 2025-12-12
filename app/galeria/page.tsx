@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import GaleriaPageClient from "./GaleriaPageClient";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
     title: "Galería de Trabajos | Antes y Después | TallerPro",
     description:
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
         title: "Galería de Trabajos | TallerPro",
         description:
             "Mir&aacute; los resultados reales de nuestros trabajos de chapa, pintura y pulido en Bariloche.",
-        url: "https://tallerpro.com/galeria",
+        url: `${baseUrl}/galeria`,
         images: [
             {
                 url: "/og-galeria.jpg",
@@ -35,10 +37,33 @@ export const metadata: Metadata = {
         images: ["/og-galeria.jpg"]
     },
     alternates: {
-        canonical: "https://tallerpro.com/galeria"
+        canonical: `${baseUrl}/galeria`
     }
 };
 
 export default function GaleriaPage() {
-    return <GaleriaPageClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                suppressHydrationWarning
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ImageGallery",
+                        "@id": `${baseUrl}/galeria#galeria`,
+                        name: "Galería de trabajos realizados | TallerPro",
+                        description:
+                            "Resultados reales de reparación de golpes, pintura automotriz y pulido profesional.",
+                        url: `${baseUrl}/galeria`,
+                        image: [
+                            `${baseUrl}/og-galeria.jpg`,
+                        ],
+                        mainEntityOfPage: `${baseUrl}/galeria`,
+                    }),
+                }}
+            />
+            <GaleriaPageClient />;
+        </>
+    )
 }

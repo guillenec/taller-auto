@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import ContactoPageClient from "./ContactoPageClient";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
     title: "Contacto | TallerPro | Consultas, Turnos y Presupuestos",
     description:
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
         title: "Contacto | TallerPro",
         description:
             "Enviá tu consulta o solicitá un turno en TallerPro, especialistas en estética automotriz premium.",
-        url: "https://tallerpro.com/contacto",
+        url: `${baseUrl}/contacto`,
         images: [
             {
                 url: "/og-contacto.jpg",
@@ -25,7 +27,8 @@ export const metadata: Metadata = {
                 height: 630
             }
         ],
-        type: "website"
+        type: "website",
+        locale: "es_AR",
     },
     twitter: {
         card: "summary_large_image",
@@ -35,10 +38,37 @@ export const metadata: Metadata = {
         images: ["/og-contacto.jpg"]
     },
     alternates: {
-        canonical: "https://tallerpro.com/contacto"
+        canonical: `${baseUrl}/contacto`
     }
 };
 
 export default function Page() {
-    return <ContactoPageClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                suppressHydrationWarning
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ContactPage",
+                        "@id": `${baseUrl}/contacto#contact`,
+                        name: "Contacto | TallerPro",
+                        url: `${baseUrl}/contacto`,
+                        description:
+                            "Consultas, turnos y presupuestos en TallerPro, Bariloche.",
+                        mainEntity: {
+                            "@type": "ContactPoint",
+                            telephone: "+5491122233344",
+                            contactType: "customer service",
+                            areaServed: "AR",
+                            availableLanguage: ["es", "en"],
+                        },
+                    }),
+                }}
+            />
+
+            <ContactoPageClient />;
+        </>
+    )
 }

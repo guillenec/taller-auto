@@ -1,5 +1,7 @@
 import { Metadata } from "next";
-import SobreNosotrosPageClient from "./page copy";
+import SobreNosotrosPageClient from "./SobreNosotrosPageClient.tsx";
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
     title: "Sobre Nosotros | TallerPro | Profesionales en Chapistería y Pintura",
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
         title: "Sobre Nosotros | TallerPro",
         description:
             "Nuestra historia, valores y equipo profesional en reparación de golpes, pintura y restauración automotriz.",
-        url: "https://tallerpro.com/sobre-nosotros",
+        url: `${baseUrl}/sobre-nosotros`,
         images: [
             {
                 url: "/og-sobre-nosotros.jpg",
@@ -25,7 +27,8 @@ export const metadata: Metadata = {
                 height: 630
             }
         ],
-        type: "website"
+        type: "website",
+        locale: "es_AR",
     },
     twitter: {
         card: "summary_large_image",
@@ -35,10 +38,47 @@ export const metadata: Metadata = {
         images: ["/og-sobre-nosotros.jpg"]
     },
     alternates: {
-        canonical: "https://tallerpro.com/sobre-nosotros"
+        canonical: `${baseUrl}/sobre-nosotros`
     }
 };
 
 export default function Page() {
-    return <SobreNosotrosPageClient />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                suppressHydrationWarning
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "AboutPage",
+                        "@id": `${baseUrl}/sobre-nosotros#about`,
+                        name: "Sobre Nosotros | TallerPro",
+                        url: `${baseUrl}/sobre-nosotros`,
+                        description:
+                            "Conocé la historia, trayectoria y equipo detrás de TallerPro.",
+                        mainEntity: {
+                            "@type": "Organization",
+                            name: "TallerPro",
+                            url: baseUrl,
+                            logo: `${baseUrl}/favicon-32x32.png`,
+                        },
+                        address: {
+                            "@type": "PostalAddress",
+                            streetAddress: "Don Bosco 121",
+                            addressLocality: "San Carlos de Bariloche",
+                            addressRegion: "Río Negro",
+                            addressCountry: "AR",
+                        },
+                        sameAs: [
+                            "https://www.facebook.com/",
+                            "https://www.instagram.com/",
+                        ],
+                    }),
+                }}
+            />
+
+            <SobreNosotrosPageClient />;
+        </>
+    )
 }

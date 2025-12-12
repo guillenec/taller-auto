@@ -36,13 +36,13 @@ export default function ServiciosPageClient() {
 
             {/* TÍTULO */}
             <AnimatedSection>
-                <h2 className="text-4xl font-bold text-center mb-12">
+                <h1 className="text-4xl font-bold text-center mb-12 will-change-transform">
                     {t?.services?.title}{" "}
                     <span className="text-transparent bg-clip-text 
                         bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
                         {t?.services?.title_gradient}
                     </span>
-                </h2>
+                </h1>
             </AnimatedSection>
 
             {/* CARDS */}

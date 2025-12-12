@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import HomePageClient from "./HomePageClient";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
   title: "TallerPro | Chapistería y Pintura Automotriz en Bariloche",
   description:
@@ -16,13 +18,13 @@ export const metadata: Metadata = {
     "tallerpro bariloche"
   ],
   alternates: {
-    canonical: "https://tallerpro.com",
+    canonical: `${baseUrl}`,
   },
   openGraph: {
     title: "TallerPro | Reparación y Pintura Automotriz en Bariloche",
     description:
       "Servicio integral de carrocería, pintura, pulido y restauración. Resultados premium con la mejor tecnología.",
-    url: "https://tallerpro.com",
+    url: `${baseUrl}`,
     siteName: "TallerPro",
     images: [
       {
@@ -44,5 +46,30 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HomePageClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${baseUrl}/#homepage`,
+            url: `${baseUrl}`,
+            name: "TallerPro | Estética automotriz premium",
+            isPartOf: {
+              "@type": "WebSite",
+              url: baseUrl,
+              name: "TallerPro",
+            },
+            description:
+              "Reparación de golpes, pintura automotriz y restauración premium en Bariloche.",
+          }),
+        }}
+      />
+
+      <HomePageClient />;
+    </>
+  )
 }
