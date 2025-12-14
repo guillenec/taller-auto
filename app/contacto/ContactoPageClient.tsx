@@ -1,8 +1,11 @@
 "use client";
 
 import AnimatedSection from "@/components/AnimatedSection";
-import { Mail, MapPin, Phone, MessageCircle, Facebook, Instagram } from "lucide-react";
+import { MapPin, MessageCircle, Facebook, Instagram, MailCheck } from "lucide-react";
 import { useLanguage } from "@/app/providers/LanguageProvider";
+import ScrollSection from "@/components/ScrollSection";
+import Contacts from "./components/Contacts";
+import Form_contact from "./components/Form_contact";
 
 export default function ContactoPageClient() {
     const { t } = useLanguage();
@@ -37,18 +40,29 @@ export default function ContactoPageClient() {
                             {t?.contact?.form_title}
                         </h2>
 
-                        <form className="grid gap-5">
+                        {/* <form
+                            action="mailto:guillermoneculqueo@gmail.com"
+                            method="POST"
+                            encType="text/plain"
+                            className="grid gap-5"
+                        >
                             <input
+                                name="name"
+                                required
                                 className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
                                 placeholder={t?.contact?.form_name}
                             />
                             <input
+                                name="email"
+                                required
                                 className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
                                 placeholder={t?.contact?.form_email}
                                 type="email"
                             />
                             <textarea
+                                name="message"
                                 rows={5}
+                                required
                                 className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
                                 placeholder={t?.contact?.form_message}
                             ></textarea>
@@ -60,27 +74,25 @@ export default function ContactoPageClient() {
                             >
                                 {t?.contact?.form_button}
                             </button>
-                        </form>
+                        </form> */}
+                        <Form_contact />
 
                         {/* OTROS CONTACTOS */}
                         <div className="mt-10">
                             <h3 className="font-semibold text-lg mb-4">{t?.contact?.other_contact_title}</h3>
 
-                            <div className="flex flex-col gap-3 text-muted-foreground">
-                                <p className="flex items-center gap-2 hover:text-(--gradient-start) transition">
-                                    <Phone className="text-(--gradient-start)" /> {t?.contact?.phone}
-                                </p>
-                                <p className="flex items-center gap-2 hover:text-(--gradient-start) transition">
-                                    <Mail className="text-(--gradient-start)" /> {t?.contact?.email}
-                                </p>
-                            </div>
+                            <Contacts />
 
                             {/* REDES */}
                             <div className="mt-6 flex gap-5 text-2xl text-muted-foreground">
-                                <a className="hover:text-(--gradient-start) transition">
+                                <a
+                                    title="enviar mail"
+                                    aria-label="mail"
+                                    className="hover:text-(--gradient-start) transition">
                                     <Facebook />
                                 </a>
-                                <a className="hover:text-(--gradient-end) transition">
+                                <a
+                                    className="hover:text-(--gradient-end) transition">
                                     <Instagram />
                                 </a>
                                 <a className="hover:text-green-500 transition">
@@ -125,9 +137,20 @@ export default function ContactoPageClient() {
                 </AnimatedSection>
             </div>
 
+            {/* CTA Final */}
+            <ScrollSection delay={0.2}>
+                <div className="mt-20 p-10 rounded-3xl text-white text-center shadow-2xl
+                bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
+                    <MailCheck className="mx-auto mb-4 w-12 h-12 opacity-90" />
+                    <h2 className="text-3xl font-semibold">{t?.contact?.cta_title}</h2>
+                    <p className="mt-2 text-white/90 max-w-xl mx-auto">
+                        {t?.contact?.cta_sub}
+                    </p>
+                </div>
+            </ScrollSection>
             {/* WHATSAPP FLOTANTE */}
             <a
-                href="https://wa.me/5491122233344"
+                href="https://wa.me/+5492944396887"
                 className="fixed bottom-6 right-6 p-4 rounded-full shadow-xl text-white hover:scale-105 transition transform
                            bg-linear-to-r from-green-500 to-green-500  dark:from-green-400 dark:to-green-300"
             >

@@ -70,7 +70,9 @@
         "card_pintura_title": "Automotive painting",
         "card_pintura_desc": "Full repaint, computer color matching and precision touch-ups.",
         "card_pulido_title": "Polishing & detailing",
-        "card_pulido_desc": "Mirror-finish polishing, shine restoration and final protection."
+        "card_pulido_desc": "Mirror-finish polishing, shine restoration and final protection.",
+        "cta_title": "Want your car to look brand new?",
+        "cta_sub": "Contact us and request a free quote."
     },
     "gallery": {
         "title": "Gallery of",
@@ -123,7 +125,15 @@
         "address": "Don Bosco 121, San Carlos de Bariloche, Río Negro",
         "hours_title": "Business hours",
         "hours_week": "Mon to Fri: 9:00 – 18:00",
-        "hours_sat": "Saturday: 9:00 – 13:00"
+        "hours_sat": "Saturday: 9:00 – 13:00",
+        "cta_title": "Ready to improve your vehicle?",
+        "cta_sub": "Contact us today to get started",
+        "load_msj": "Sending message...",
+        "form_success": "Message sent 😎👌🔥",
+        "form_error": "Error sending message 😭😭😭",
+        "form_name_error": "Name must be at least 5 characters",
+        "form_email_error": "Invalid email",
+        "form_message_error": "Message must be at least 10 characters"
     },
     "footer": {
         "brand_text": "Specialists in bodywork, paint and automotive detailing in San Carlos de Bariloche. We work with controlled processes and top-quality materials to guarantee impeccable results.",
@@ -138,5 +148,11 @@
         "contact_phone": "Phone: 11 2233 4455",
         "contact_email": "info@tallerpro.com",
         "rights": "All rights reserved."
+    },
+    "accessibility": {
+        "toggleLanguage": "Change language",
+        "openMenu": "Open navigation menu",
+        "closeMenu": "Close navigation menu",
+        "tema": "Change color theme"
     }
 }

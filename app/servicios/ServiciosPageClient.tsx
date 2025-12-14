@@ -1,10 +1,11 @@
 "use client";
 import AnimatedSection from "@/components/AnimatedSection";
 import SkeletonCard from "@/components/SkeletonCard";
-import { Paintbrush, Wrench, Car } from "lucide-react";
+import { Paintbrush, Wrench, Car, Settings } from "lucide-react";
 import { SERVICIOS } from "../../data/images";
 import Image from "next/image";
 import { useLanguage } from "@/app/providers/LanguageProvider";
+import ScrollSection from "@/components/ScrollSection";
 
 
 export default function ServiciosPageClient() {
@@ -61,7 +62,13 @@ export default function ServiciosPageClient() {
                                             src={s.srcImg}
                                             alt={s.alt}
                                             fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                            // priority
+                                            // fetchPriority="high"
+                                            // sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                            priority={i === 0}
+                                            fetchPriority={i === 0 ? "high" : "auto"}
+                                            sizes="(min-width:1024px) 33vw, 100vw"
+                                            className="object-cover transition-transform duration-300 group-hover:scale-110"
                                         />
 
                                         <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
@@ -71,7 +78,7 @@ export default function ServiciosPageClient() {
                                         {/* Ícono */}
                                         <div className="mb-3 drop-shadow-md">{s.icon}</div>
 
-                                        <h3 className="text-2xl font-semibold">{s.titulo}</h3>
+                                        <h2 className="text-2xl font-semibold">{s.titulo}</h2>
                                         <p className="text-muted-foreground mt-2">{s.descripcion}</p>
                                     </div>
 
@@ -80,6 +87,18 @@ export default function ServiciosPageClient() {
                         ))}
                 </div>
             </AnimatedSection>
+
+            {/* CTA Final */}
+            <ScrollSection delay={0.2}>
+                <div className="mt-20 p-10 rounded-3xl text-white text-center shadow-2xl
+                bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]">
+                    <Settings className="mx-auto mb-4 w-12 h-12 opacity-90" />
+                    <h2 className="text-3xl font-semibold">{t?.services?.cta_title}</h2>
+                    <p className="mt-2 text-white/90 max-w-xl mx-auto">
+                        {t?.services?.cta_sub}
+                    </p>
+                </div>
+            </ScrollSection>
         </section>
 
     );

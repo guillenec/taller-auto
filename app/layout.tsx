@@ -102,16 +102,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <head>
-        {/* precargamos cosas necesarias */}
-        <link rel="preload" as="image" href="/fondo/fondos7.png" />
-        <link rel="preconnect" href="https://cdn.whatsapp.net" />
-        <link rel="preconnect" href="https://instagram.com" />
-        <link rel="preconnect" href="https://facebook.com" />
-        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
-        <link rel="preconnect" href="https://maps.googleapis.com" />
-        <link rel="preload" href="/_next/static/css/app/globals.css" as="style" />
-      </head>
       <body
         className={`antialiased font-sora bg-background text-foreground transition-colors  ${inter.variable} ${sora.variable} font-sora`}
       >
@@ -201,7 +191,14 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
                           name: "Pulido y detallado",
                           serviceType: "CarDetailing"
                         }
-                      }
+                      },
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Restauración automotriz",
+                        },
+                      },
                     ]
                   }
                 })

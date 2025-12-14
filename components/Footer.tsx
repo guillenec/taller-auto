@@ -56,15 +56,14 @@ export default function Footer() {
                             {t?.footer?.contact_email}
                         </p>
                     </div>
-
                     <div className="mt-4 flex gap-4 text-slate-300">
-                        <a href="#" className="hover:text-blue-400">
+                        <a href="#" className="hover:text-blue-400" aria-label="Abrir página de Facebook"> {/* <-- CORRECCIÓN */}
                             <Facebook />
                         </a>
-                        <a href="#" className="hover:text-pink-400">
+                        <a href="#" className="hover:text-pink-400" aria-label="Abrir perfil de Instagram"> {/* <-- CORRECCIÓN */}
                             <Instagram />
                         </a>
-                        <a href="https://wa.me/5491122233344" className="hover:text-green-400">
+                        <a href="https://wa.me/5491122233344" className="hover:text-green-400" aria-label="Enviar mensaje por WhatsApp"> {/* <-- CORRECCIÓN */}
                             <MessageCircle />
                         </a>
                     </div>
@@ -72,7 +71,7 @@ export default function Footer() {
             </div>
 
             {/* Derechos reservados */}
-            <div className="border-t border-slate-800 py-4 text-center text-xs text-slate-500">
+            <div className="border-t border-slate-800 py-4 text-center text-xs text-slate-400">
                 © {new Date().getFullYear()} TallerPro. {t?.footer?.rights}
             </div>
         </footer>

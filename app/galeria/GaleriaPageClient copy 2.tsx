@@ -89,10 +89,11 @@ export default function GaleriaPageClient() {
                                         src={img.srcImg}
                                         alt={img.alt}
                                         fill
+                                        fetchPriority="high"
                                         // priority={index < 3}
                                         loading="lazy"
                                         decoding="async"
-                                        className="object-cover  group-hover:scale-110 transition duration-700"
+                                        className="object-cover  group-hover:scale-110 transition duration-300"
                                         sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
                                     />
                                 </div>

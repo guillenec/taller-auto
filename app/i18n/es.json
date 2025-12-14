@@ -70,7 +70,9 @@
         "card_pintura_title": "Pintura automotriz",
         "card_pintura_desc": "Aplicación de pintura de alta calidad con cabina presurizada y barnices de acabado cerámico duradero.",
         "card_pulido_title": "Pulido y detallado",
-        "card_pulido_desc": "Corrección de imperfecciones, pulido espejo profesional, encerado y protección contra rayos UV."
+        "card_pulido_desc": "Corrección de imperfecciones, pulido espejo profesional, encerado y protección contra rayos UV.",
+        "cta_title": "¿Querés dejar tu auto como nuevo?",
+        "cta_sub": "Contactanos y solicitá tu presupuesto sin cargo."
     },
     "gallery": {
         "title": "Galería de",
@@ -123,7 +125,15 @@
         "address": "Don Bosco 121, San Carlos de Bariloche, Río Negro",
         "hours_title": "Horarios de atención",
         "hours_week": "Lunes a Viernes: 9:00 – 18:00",
-        "hours_sat": "Sábados: 9:00 – 13:00"
+        "hours_sat": "Sábados: 9:00 – 13:00",
+        "cta_title": "¿Listo para mejorar tu vehículo?",
+        "cta_sub": "Contactanos hoy mismo para comenzar",
+        "load_msj": "Enviando mensaje...",
+        "form_success": "¡Mensaje enviado con éxito! 😎👌🔥",
+        "form_error": "Hubo un error al enviar el mensaje. 😢🤷‍♂️",
+        "form_name_error": "El nombre debe tener 5 caracteres",
+        "form_email_error": "Email invalido",
+        "form_message_error": "El mensaje debe tener al menos 10 caracteres"
     },
     "footer": {
         "brand_text": "Especialistas en chapistería, pintura y detallado automotriz en San Carlos de Bariloche. Trabajamos con procesos controlados y materiales de primera línea para garantizar resultados impecables.",
@@ -138,5 +148,11 @@
         "contact_phone": "Tel: 11 2233 4455",
         "contact_email": "info@tallerpro.com",
         "rights": "Todos los derechos reservados."
+    },
+    "accessibility": {
+        "toggleLanguage": "Cambiar idioma",
+        "openMenu": "Abrir menú de navegación",
+        "closeMenu": "Cerrar menú de navegación",
+        "tema": "Cambiar tema color"
     }
 }

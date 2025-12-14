@@ -47,6 +47,8 @@ export type TranslationSchema = {
         card_pintura_desc: string;
         card_pulido_title: string;
         card_pulido_desc: string;
+        cta_title: string
+        cta_sub: string
     };
     gallery?: {
         title: string;
@@ -100,6 +102,14 @@ export type TranslationSchema = {
         hours_title: string;
         hours_week: string;
         hours_sat: string;
+        cta_title: string;
+        cta_sub: string;
+        load_msj: string;
+        form_success: string;
+        form_error: string;
+        form_name_error: string;
+        form_email_error: string;
+        form_message_error: string;
     };
     footer?: {
         brand_text: string;
@@ -115,4 +125,10 @@ export type TranslationSchema = {
         contact_email: string;
         rights: string;
     };
+    accessibility: { // <-- ¡CLAVE NUEVA AGREGADA!
+        toggleLanguage: string;
+        openMenu: string;
+        closeMenu: string;
+        tema: string;
+    }
 };

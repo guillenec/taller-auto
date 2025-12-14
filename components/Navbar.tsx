@@ -60,7 +60,9 @@ export default function Navbar() {
 
                     {/* IDIOMA */}
                     <button onClick={toggleLang}
-                        className="p-2 rounded-md bg-card dark:bg-card hover:bg-border dark:hover:bg-border transition flex items-center gap-1 border border-border">
+                        className="p-2 rounded-md bg-card dark:bg-card hover:bg-border dark:hover:bg-border transition flex items-center gap-1 border border-border"
+                        aria-label={t?.accessibility?.toggleLanguage || "Cambiar idioma"}
+                    >
                         <Globe size={18} />
                         <span className="text-sm font-semibold">{lang.toUpperCase()}</span>
                     </button>
@@ -68,6 +70,8 @@ export default function Navbar() {
                     <button
                         className="md:hidden"
                         onClick={() => setOpen(!open)}
+                        aria-label={open ? t?.accessibility?.closeMenu || "Cerrar menú" : t?.accessibility?.openMenu || "Abrir menú"}
+                        aria-expanded={open}
                     >
                         <Menu />
                     </button>

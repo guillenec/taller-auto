@@ -65,6 +65,11 @@ export default function Page() {
             },
             description:
               "Reparación de golpes, pintura automotriz y restauración premium en Bariloche.",
+            provider: {
+              "@type": "AutoRepair",
+              name: "TallerPro",
+              url: baseUrl,
+            },
           }),
         }}
       />

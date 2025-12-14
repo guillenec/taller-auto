@@ -39,6 +39,7 @@ export default function SobreNosotrosPageClient() {
                 <Image
                     src={imagen1.srcImg}
                     alt={imagen1.alt}
+                    fetchPriority="high"
                     width={600}
                     height={500}
                     priority
