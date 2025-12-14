@@ -39,42 +39,6 @@ export default function ContactoPageClient() {
                         <h2 className="text-2xl font-semibold mb-6 bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))] text-transparent bg-clip-text">
                             {t?.contact?.form_title}
                         </h2>
-
-                        {/* <form
-                            action="mailto:guillermoneculqueo@gmail.com"
-                            method="POST"
-                            encType="text/plain"
-                            className="grid gap-5"
-                        >
-                            <input
-                                name="name"
-                                required
-                                className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
-                                placeholder={t?.contact?.form_name}
-                            />
-                            <input
-                                name="email"
-                                required
-                                className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
-                                placeholder={t?.contact?.form_email}
-                                type="email"
-                            />
-                            <textarea
-                                name="message"
-                                rows={5}
-                                required
-                                className="p-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-(--gradient-start) transition"
-                                placeholder={t?.contact?.form_message}
-                            ></textarea>
-
-                            <button
-                                className="px-6 py-3 rounded-xl text-white font-semibold shadow-lg transition
-                                bg-[linear-gradient(to_right,var(--gradient-start),var(--gradient-end))]
-                                hover:opacity-90"
-                            >
-                                {t?.contact?.form_button}
-                            </button>
-                        </form> */}
                         <Form_contact />
 
                         {/* OTROS CONTACTOS */}

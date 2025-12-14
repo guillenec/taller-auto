@@ -1,10 +1,9 @@
 import { Mail, Phone } from "lucide-react"
 
-
 const Contacts = () => {
-    const mail = 'guillermoneculqueo@gmail.com'
-    const watsapp = '2944396887'
 
+    const mail = process.env.NEXT_PUBLIC_CONTACT_EMAIL
+    const watsapp = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP
 
     const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault()

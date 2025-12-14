@@ -21,7 +21,13 @@ export default function Form_contact() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState<string | null>(null);
 
-    const destinatario = "guillermoneculqueo@gmail.com";
+    const destinatario = process.env.NEXT_PUBLIC_CONTACT_EMAIL
+
+    if (!destinatario) {
+        throw new Error(
+            "NEXT_PUBLIC_CONTACT_EMAIL no está definida en las variables de entorno"
+        );
+    }
 
     const handleSubmit = async (
         e: React.FormEvent<HTMLFormElement>
